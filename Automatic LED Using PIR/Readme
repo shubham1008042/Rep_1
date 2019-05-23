@@ -1,0 +1,70 @@
+Automatic Room Lights System using Arduino is a very useful project as you need not worry about turning on and off the switches every time you want to turn on the lights. The main components of the Automatic Room Lights project are Arduino, PIR Sensor and the Relay Module.
+Out of the three components, the PIR Sensor is the one in focus as it is the main device that helps in detecting humans and human motion.
+In fact, the Automatic Room Lights project can be considered as one major application of the PIR Sensor. A similar concept is being already implemented in automatic toilet flush valves, hand dryers, etc.
+
+Automatic LED using PIR Sensor
+PIR Sensor is used to detect the motion within its range(5-12m).
+Arduino is used to for this purpose.
+Relay is used to attach the AC Supply and AC LED or any another AC appliance with our Arduino,
+as it can handle the 220V and let the arduino work on 5V(Required Power).
+The Sketch for the Circuit is linked.
+Components Required:
+ Arduino UNO, Relay, AC Power Supply(I have Used 9V Battery and LED),PIR Sensor
+ 
+ 
+######## CODE ########
+int in1 = 9;					// Data Pin of Relay	
+int sensor = 8;				// PIR Sensor Pin
+unsigned long t=0;
+unsigned long t2=0;				
+void setup() {
+  Serial.begin(9600);
+  pinMode(in1, OUTPUT);				
+  pinMode(sensor, INPUT);
+  pinMode(led, OUTPUT);
+  
+  digitalWrite(in1,HIGH);  
+}
+void loop() 
+{
+  if(digitalRead(sensor)==HIGH)			// If motion detected
+  {
+  Serial.println("Sensor ON.... ");
+  t=millis();					// Variable to manage the time periods after which the next motion is to be detected.    
+  digitalWrite(in1,HIGH);			// Turn the relay ON
+  while(millis()<(t+3000))			// Check the motion for three econds
+  
+  {
+  Serial.print("W1...... ");
+  digitalWrite(in1,HIGH); 
+  if((millis()>(t+100))&&(digitalRead(sensor)==HIGH))	// Loop to check the motion after every 0.1s      
+  {
+       Serial.print(" =========== "); 
+       t=millis();					// if motion detected the while loop will be executed again as the time t is updated here.
+      }
+  Serial.println("Checking if on after  0.1s...... ");
+  }
+  Serial.println("ENDIF");
+  }
+ 
+  else{						 // If no motion is detected
+
+  Serial.println("Sensor OFF.... ");
+  t2=millis();
+  while(millis()<(t2+3000))			// Loop to check whether there is any further movement 
+  {
+    
+  digitalWrite(in1,LOW); 
+  if((millis()>(t2+1500))&&(digitalRead(sensor)==LOW)) // Check the Sensor readings after every 1.5s 
+      {
+       t2=millis();				// Update t2 variable if no motion detected.(thus the while loop goes on.
+      }
+  }
+  }
+}
+
+
+References: 
+https://maker.pro/custom/tutorial/how-to-automate-your-home-with-a-pir-motion-sensor
+https://www.instructables.com/id/Control-Light-Room-With-Arduino-and-PIR-Motion-Sen/
+https://create.arduino.cc/projecthub/izzati-azryna/motion-detection-lamp-1a22d6
