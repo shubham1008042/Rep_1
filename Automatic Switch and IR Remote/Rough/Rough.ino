@@ -66,6 +66,7 @@ void PIR_ON()
 {
   if(digitalRead(sensor) == HIGH )     // If motion detected
   {
+  delay(3000); 
   Serial.println(" Sensor ON.... ");
   t=millis();         // Variable to manage the time periods after which the next motion is to be detected.    
  // digitalWrite(in1,HIGH);     // Turn the relay ON
