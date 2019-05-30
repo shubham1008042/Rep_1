@@ -2,16 +2,17 @@
 
 **Components:**
 
- *2 Ultrasonic
- *IR Sensor for AC remote 
- *PIR Sensor For detecting Human Presesnce
- *Relay To connect AC with Arduino.
+ * 2 Ultrasonic
+ * IR Sensor for AC remote 
+ * PIR Sensor For detecting Human Presesnce
+ * Relay To connect AC with Arduino.
 
 **Functions Used**
-  *Ultrasonic()
+
+  * Ultrasonic()
     For calculating the ultrasonic distance.
-  *PIR_ON()
+  * PIR_ON()
     To Switch on the relay according to PIR 
-  *PIR_OFF()
+  * PIR_OFF()
     To Switch on the relay according to PIR
  
