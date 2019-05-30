@@ -10,9 +10,9 @@
 **Functions Used**
 
   * Ultrasonic()
-    For calculating the ultrasonic distance.
+    * For calculating the ultrasonic distance.
   * PIR_ON()
-    To Switch on the relay according to PIR 
+    * To Switch on the relay according to PIR 
   * PIR_OFF()
-    To Switch on the relay according to PIR
+    * To Switch on the relay according to PIR
  
