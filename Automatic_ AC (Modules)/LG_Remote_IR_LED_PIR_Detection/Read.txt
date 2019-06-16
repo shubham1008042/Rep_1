@@ -1,4 +1,4 @@
-Automatic AC System using Arduino is a very useful project as you need not worry about turning on and off the switches every time you want to turn on the AC. The main components of this project are Arduino, PIR Sensor and the IR LED(For sending the .
+Automatic AC System using Arduino is a very useful project as you need not to worry about turning on and off the switches every time you want to turn on the AC. The main components of this project are Arduino, PIR Sensor and the IR LED(For sending the .
 
 Out of the three components, the PIR Sensor is the one in focus as it is the main device that helps in detecting humans and human motion.
 
